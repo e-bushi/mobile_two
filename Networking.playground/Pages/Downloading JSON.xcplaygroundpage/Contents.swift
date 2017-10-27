@@ -114,18 +114,57 @@ enum requestMethods: String {
 
 typealias JSON = [String: Any]
 
-let url = URL(string: "https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49")!
+let url = URL(string: "https://ghibliapi.herokuapp.com/films/")!
 
 var request = URLRequest(url: url)
 request.httpMethod = requestMethods.get.rawValue
 
 let session = URLSession.shared
 
+struct films: Decodable {
+    let films: [Anime]
+}
+
+
+struct Anime {
+    var title: String
+    var director: String
+    var description: String
+}
+
+extension Anime: Decodable {
+    enum Keys: CodingKey {
+        case title
+        case director
+        case description
+    }
+    
+    init(from decoder: Decoder) throws {
+        let containter = try? decoder.container(keyedBy: Keys.self)
+        
+        let title = try? containter?.decode(String.self, forKey: Keys.title)
+        let director = try? containter?.decode(String.self, forKey: Keys.director)
+        let description = try? containter?.decode(String.self, forKey: Keys.description)
+        
+        self.init(title: title!! , director: director!!, description: description!!)
+    }
+}
+
+
 let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
     
-    let data = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+    if let data = data {
+        
+        let list = try? JSONDecoder().decode([Anime].self, from: data)
+        
+        for elements in list! {
+            print("Movie title: \(elements.title)")
+            print("Director: \(elements.director)\n")
+            print("Synopsis: \(elements.description)\n\n")
+        }
+    }
     
-    print(data)
+   
 })
 
 task.resume()
