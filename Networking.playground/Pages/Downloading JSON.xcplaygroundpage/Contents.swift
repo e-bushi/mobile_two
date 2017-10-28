@@ -85,6 +85,7 @@ import PlaygroundSupport
 //
 //postReq.httpMethod = "POST"
 //postReq.httpBody = jsonData
+//let session = URLSession.shared
 //
 //session.dataTask(with: postReq) { (data, resp, err) in
 //    if let data = data {
@@ -103,71 +104,71 @@ import PlaygroundSupport
 */
 
 //challenge #1
-
-enum requestMethods: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case patch = "PATCH"
-    case delete = "DELETE"
-}
-
-typealias JSON = [String: Any]
-
-let url = URL(string: "https://ghibliapi.herokuapp.com/films/")!
-
-var request = URLRequest(url: url)
-request.httpMethod = requestMethods.get.rawValue
-
-let session = URLSession.shared
-
-struct films: Decodable {
-    let films: [Anime]
-}
-
-
-struct Anime {
-    var title: String
-    var director: String
-    var description: String
-}
-
-extension Anime: Decodable {
-    enum Keys: CodingKey {
-        case title
-        case director
-        case description
-    }
-    
-    init(from decoder: Decoder) throws {
-        let containter = try? decoder.container(keyedBy: Keys.self)
-        
-        let title = try? containter?.decode(String.self, forKey: Keys.title)
-        let director = try? containter?.decode(String.self, forKey: Keys.director)
-        let description = try? containter?.decode(String.self, forKey: Keys.description)
-        
-        self.init(title: title!! , director: director!!, description: description!!)
-    }
-}
-
-
-let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-    
-    if let data = data {
-        
-        let list = try? JSONDecoder().decode([Anime].self, from: data)
-        
-        for elements in list! {
-            print("Movie title: \(elements.title)")
-            print("Director: \(elements.director)\n")
-            print("Synopsis: \(elements.description)\n\n")
-        }
-    }
-    
-   
-})
-
-task.resume()
+//
+//enum requestMethods: String {
+//    case get = "GET"
+//    case post = "POST"
+//    case put = "PUT"
+//    case patch = "PATCH"
+//    case delete = "DELETE"
+//}
+//
+//typealias JSON = [String: Any]
+//
+//let url = URL(string: "https://ghibliapi.herokuapp.com/films/")!
+//
+//var request = URLRequest(url: url)
+//request.httpMethod = requestMethods.get.rawValue
+//
+//let session = URLSession.shared
+//
+//struct films: Decodable {
+//    let films: [Anime]
+//}
+//
+//
+//struct Anime {
+//    var title: String
+//    var director: String
+//    var description: String
+//}
+//
+//extension Anime: Decodable {
+//    enum Keys: CodingKey {
+//        case title
+//        case director
+//        case description
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let containter = try? decoder.container(keyedBy: Keys.self)
+//
+//        let title = try? containter?.decode(String.self, forKey: Keys.title)
+//        let director = try? containter?.decode(String.self, forKey: Keys.director)
+//        let description = try? containter?.decode(String.self, forKey: Keys.description)
+//
+//        self.init(title: title!! , director: director!!, description: description!!)
+//    }
+//}
+//
+//
+//let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+//
+//    if let data = data {
+//
+//        let list = try? JSONDecoder().decode([Anime].self, from: data)
+//
+//        for elements in list! {
+//            print("Movie title: \(elements.title)")
+//            print("Director: \(elements.director)\n")
+//            print("Synopsis: \(elements.description)\n\n")
+//        }
+//    }
+//
+//
+//})
+//
+//task.resume()
 
 
 

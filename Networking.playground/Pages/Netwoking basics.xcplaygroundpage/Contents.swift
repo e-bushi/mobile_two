@@ -34,7 +34,7 @@ import Foundation
 */
 
 // 1
-let url = URL(string: "www.google.com/images/434.png")!
+let url = URL(string: "https://ghibliapi.herokuapp.com/films/")!
 
 // 2
 var request = URLRequest(url: url)
@@ -44,7 +44,10 @@ let session = URLSession.shared
 
 // 4
 let downloadTask = session.dataTask(with: request) { (data, response, error) in
-    
+    if let data = data {
+        let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+        print(json!)
+    }
 }
 
 // 5
