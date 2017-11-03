@@ -10,6 +10,7 @@ struct AnimeList: Decodable {
 }
 struct Anime {
     let title: (String, String)
+    let synopsis: String
     let poster: URL
     let id: String
 }
@@ -32,6 +33,7 @@ extension Anime: Decodable {
     enum AttributeKeys: String, CodingKey {
         case title = "titles"
         case posterImage
+        case synopsis
     }
     
     init(from decoder: Decoder) throws {
@@ -61,8 +63,11 @@ extension Anime: Decodable {
         
         let moviePoster = try? moviePosterContainer??.decode(URL.self, forKey: .poster)
         
+        //synopsis
+        let description = try? attributesContainer??.decode(String.self, forKey: .synopsis)
         
-        self.init(title: (englishTitle, japaneseTitle), poster: moviePoster!!, id: id!!)
+        
+        self.init(title: (englishTitle, japaneseTitle), synopsis: description!!, poster: moviePoster!!, id: id!!)
     }
 }
 
@@ -99,23 +104,34 @@ class animeFrames: UIViewController, WKUIDelegate {
     var webView = WKWebView()
     
     override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: CGRect(x: 10, y: 40, width: 200, height: 300), configuration: webConfiguration)
         let animeView = UIView()
         
+        //create title label
         let animeTitle = UILabel()
         animeTitle.frame = CGRect(x: 10, y: 10, width: 300, height: 20)
         animeTitle.textColor = .white
         
+        
+        //test label
+        let animeSynopsis = UILabel()
+        animeSynopsis.frame = CGRect(x: 10, y: 350, width: 200, height: 30)
+        animeSynopsis.textRect(forBounds: animeSynopsis.frame, limitedToNumberOfLines: 30)
+        animeSynopsis.textColor = .white
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: CGRect(x: 10, y: 40, width: 200, height: 300), configuration: webConfiguration)
+        
+        
         network.getAnime(id: "1") {(result) in
-            animeTitle.text = result[1].title.0
             let request = URLRequest(url: result[1].poster)
             self.webView.load(request)
+            animeTitle.text = result[1].title.0
+            animeSynopsis.text = result[1].synopsis
         }
         
-        
-        animeView.addSubview(animeTitle)
         animeView.addSubview(webView)
+        animeView.addSubview(animeTitle)
+        animeView.addSubview(animeSynopsis)
         self.view = animeView
     }
 }
