@@ -7,18 +7,24 @@
 //
 
 import UIKit
-
+import WebKit
 class ProductListingTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    
+    @IBOutlet weak var productImagery: WKWebView!
+    @IBOutlet weak var productName: UILabel!
+    
+    
+    
+    var post: Post? {
+        didSet{
+            let request = URLRequest(url: (post?.thumbNail)!)
+            
+            productName?.text = post?.name
+//            productVoteCount?.text = "\(post!.votesCount)"
+            productImagery?.load(request)
+        }
     }
 
 }

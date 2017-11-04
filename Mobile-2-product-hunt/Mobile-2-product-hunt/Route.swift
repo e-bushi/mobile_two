@@ -39,7 +39,7 @@ enum Resource {
             return "/v1/posts/all"
             
         case .comments(let postId):
-            return "/v1/posts/\(postId)/comments"
+            return "v1/posts/\(postId)/comments"
         }
     }
     

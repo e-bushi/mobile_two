@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import WebKit
 
 class ProductListingTableViewController: UITableViewController {
+    
     var list = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 95
+        
         let productHunt = ProductHuntNetwork()
         productHunt.fetch(resource: .posts) { (posts) in
             DispatchQueue.main.async {
@@ -41,10 +45,10 @@ class ProductListingTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductListingTableViewCell
         
         // Configure the cell...
-        cell.textLabel?.text = list[indexPath.row].name
+        cell.post = list[indexPath.row]
 
         return cell
     }

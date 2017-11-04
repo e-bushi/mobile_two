@@ -15,7 +15,7 @@ class CommentListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.rowHeight = 100
         if let id = id {
             let productHunt = ProductHuntNetwork()
             productHunt.fetch(resource: .comments(postId: id)) { (comments) in
@@ -44,6 +44,15 @@ class CommentListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.comments.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        
+        // Configure the cell...
+        cell.textLabel?.text = comments[indexPath.row].name
+        
+        return cell
     }
 
     

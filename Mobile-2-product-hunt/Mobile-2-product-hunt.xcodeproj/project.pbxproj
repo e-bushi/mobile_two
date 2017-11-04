@@ -19,6 +19,7 @@
 		F6BE9A5D1FA8097D005CE6C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BE9A5B1FA8097D005CE6C5 /* LaunchScreen.storyboard */; };
 		F6BE9A671FA8152A005CE6C5 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE9A661FA8152A005CE6C5 /* Posts.swift */; };
 		F6BE9A691FA8220C005CE6C5 /* ProductHuntNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE9A681FA8220C005CE6C5 /* ProductHuntNetworking.swift */; };
+		F6F5216A1FAD1F720083A583 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F521691FAD1F720083A583 /* ProductImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F6BE9A5E1FA8097D005CE6C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6BE9A661FA8152A005CE6C5 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		F6BE9A681FA8220C005CE6C5 /* ProductHuntNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHuntNetworking.swift; sourceTree = "<group>"; };
+		F6F521691FAD1F720083A583 /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				F6165E801FABF50100DD0052 /* CommentListTableViewController.swift */,
 				F6165E821FABF53A00DD0052 /* comments.swift */,
 				F6165E841FAC178600DD0052 /* CommentListTableViewCell.swift */,
+				F6F521691FAD1F720083A583 /* ProductImage.swift */,
 			);
 			path = "Mobile-2-product-hunt";
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				F60F07DE1FAA901E00A8E4C4 /* Route.swift in Sources */,
 				F6BE9A691FA8220C005CE6C5 /* ProductHuntNetworking.swift in Sources */,
 				F6BE9A531FA8097D005CE6C5 /* AppDelegate.swift in Sources */,
+				F6F5216A1FAD1F720083A583 /* ProductImage.swift in Sources */,
 				F6165E831FABF53A00DD0052 /* comments.swift in Sources */,
 				F6165E851FAC178600DD0052 /* CommentListTableViewCell.swift in Sources */,
 			);

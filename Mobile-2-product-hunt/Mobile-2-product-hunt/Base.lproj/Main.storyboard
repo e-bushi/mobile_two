@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="db2-fk-qtF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w9F-JE-ctb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,82 +9,113 @@
     </dependencies>
     <scenes>
         <!--Product Listing Table View Controller-->
-        <scene sceneID="Imz-F4-Raa">
+        <scene sceneID="Cfy-aw-dEI">
             <objects>
-                <tableViewController storyboardIdentifier="productListing" id="7JF-iW-75F" customClass="ProductListingTableViewController" customModule="Mobile_2_product_hunt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hbb-O0-5PK">
+                <tableViewController id="l5p-eY-Raq" customClass="ProductListingTableViewController" customModule="Mobile_2_product_hunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jIH-vp-qsq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" rowHeight="98" id="VKK-8g-7E8" customClass="ProductListingTableViewCell" customModule="Mobile_2_product_hunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" rowHeight="85" id="Dwq-7H-htm" customClass="ProductListingTableViewCell" customModule="Mobile_2_product_hunt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKK-8g-7E8" id="R9X-l3-AKK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dwq-7H-htm" id="kKs-oH-eci">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-R8-YDS" customClass="ProductImage" customModule="Mobile_2_product_hunt" customModuleProvider="target">
+                                            <rect key="frame" x="21" y="12.5" width="60" height="60"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="OuV-a1-Qxc"/>
+                                                <constraint firstAttribute="height" constant="60" id="Rgs-9s-MnJ"/>
+                                            </constraints>
+                                            <wkWebViewConfiguration key="configuration">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences"/>
+                                            </wkWebViewConfiguration>
+                                        </wkWebView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXE-A0-muF">
+                                            <rect key="frame" x="122" y="32" width="203" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hXE-A0-muF" firstAttribute="centerY" secondItem="kKs-oH-eci" secondAttribute="centerY" id="5PV-vL-Bii"/>
+                                        <constraint firstAttribute="trailing" secondItem="hXE-A0-muF" secondAttribute="trailing" constant="50" id="9Gt-1w-29r"/>
+                                        <constraint firstItem="hXE-A0-muF" firstAttribute="leading" secondItem="TKz-R8-YDS" secondAttribute="trailing" constant="41" id="MBD-dq-92u"/>
+                                        <constraint firstItem="TKz-R8-YDS" firstAttribute="centerY" secondItem="kKs-oH-eci" secondAttribute="centerY" id="fyB-j9-zqo"/>
+                                        <constraint firstItem="TKz-R8-YDS" firstAttribute="leading" secondItem="kKs-oH-eci" secondAttribute="leading" constant="21" id="ufr-nM-cKI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="productImagery" destination="TKz-R8-YDS" id="QAG-cp-OKt"/>
+                                    <outlet property="productName" destination="hXE-A0-muF" id="CUL-eQ-rjw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="7JF-iW-75F" id="oyB-Ct-YB3"/>
-                            <outlet property="delegate" destination="7JF-iW-75F" id="j5i-zc-SNi"/>
+                            <outlet property="dataSource" destination="l5p-eY-Raq" id="y65-hV-h6U"/>
+                            <outlet property="delegate" destination="l5p-eY-Raq" id="wfi-aQ-GfO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5wN-02-Fzz"/>
+                    <navigationItem key="navigationItem" id="1Vj-pX-5WO"/>
                     <connections>
-                        <segue destination="5V2-mG-CX0" kind="show" id="nU5-Z3-v47"/>
+                        <segue destination="kN3-87-4g5" kind="show" id="U2l-Nj-pqe"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FkD-wm-Svq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Yv-XE-Tv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-203.5" y="46.5"/>
+            <point key="canvasLocation" x="391.19999999999999" y="45.42728635682159"/>
         </scene>
         <!--Comment List Table View Controller-->
-        <scene sceneID="Xqg-i6-86r">
+        <scene sceneID="rp0-3b-dSJ">
             <objects>
-                <tableViewController storyboardIdentifier="commentList" id="5V2-mG-CX0" customClass="CommentListTableViewController" customModule="Mobile_2_product_hunt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kBI-Q7-PEk">
+                <tableViewController storyboardIdentifier="commentList" id="kN3-87-4g5" customClass="CommentListTableViewController" customModule="Mobile_2_product_hunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d8P-92-n7P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="Kz7-AX-XfT" customClass="CommentListTableViewCell" customModule="Mobile_2_product_hunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="K81-dt-bum" customClass="CommentListTableViewCell" customModule="Mobile_2_product_hunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kz7-AX-XfT" id="tl0-nJ-Tld">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K81-dt-bum" id="b3i-Ae-cNa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="5V2-mG-CX0" id="4ij-SL-OSv"/>
-                            <outlet property="delegate" destination="5V2-mG-CX0" id="PuR-ca-MCH"/>
+                            <outlet property="dataSource" destination="kN3-87-4g5" id="h3n-UJ-OOl"/>
+                            <outlet property="delegate" destination="kN3-87-4g5" id="nnR-DV-sne"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m69-0E-hwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dZ-Rr-3zs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713.5" y="45.5"/>
+            <point key="canvasLocation" x="1255" y="47"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="opn-rg-MlR">
+        <scene sceneID="V6T-yO-WXN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="db2-fk-qtF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w9F-JE-ctb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f6z-4M-u5w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pkn-MH-lcu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7JF-iW-75F" kind="relationship" relationship="rootViewController" id="v0H-3c-8x1"/>
+                        <segue destination="l5p-eY-Raq" kind="relationship" relationship="rootViewController" id="hdQ-QP-Tlm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9VW-gJ-hhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ffk-x4-ehI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-675" y="61"/>
+            <point key="canvasLocation" x="-551" y="45"/>
         </scene>
     </scenes>
 </document>

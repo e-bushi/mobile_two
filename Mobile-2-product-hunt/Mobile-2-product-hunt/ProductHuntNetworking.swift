@@ -13,8 +13,8 @@ class ProductHuntNetwork {
     let session = URLSession.shared
     let baseUrl = URL(string: "https://api.producthunt.com/")
     
-    func fetch(resource: Resource, completion: @escaping ([Any]) -> ()) {
-        
+    func fetch(resource: Resource, completion: @escaping (Decodable) -> ()) {
+    
         let fullUrl = baseUrl?.appendingPathComponent(resource.urlPath())
         var request = URLRequest(url: fullUrl!)
         request.httpMethod = resource.method()
@@ -23,9 +23,17 @@ class ProductHuntNetwork {
         session.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 
-                let postList = try? JSONDecoder().decode(PostsList.self, from: data)
-                guard let posts = postList?.posts else {return}
-                completion(posts)
+                switch resource {
+                case .posts:
+                    let postList = try? JSONDecoder().decode(PostsList.self, from: data)
+                    guard let posts = postList?.posts else {return}
+                    completion(posts)
+                    
+                case .comments:
+                    let commentList = try? JSONDecoder().decode(CommentsList.self, from: data)
+                    guard let posts = commentList?.comments else {return}
+                    completion(posts)
+                }
             }
         }.resume()
         

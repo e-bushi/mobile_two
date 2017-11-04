@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CommentsList {
+struct CommentsList: Decodable {
     var comments: [Comment]
 }
 

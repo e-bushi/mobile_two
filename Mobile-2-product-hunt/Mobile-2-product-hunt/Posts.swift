@@ -16,7 +16,7 @@ struct Post {
     var id: Int
     var name: String
     var tagline: String
-    var thumbNail: String
+    var thumbNail: URL
     var votesCount: Int
 }
 
@@ -44,7 +44,7 @@ extension Post: Decodable {
         
         let thumbnailContainer = try container.nestedContainer(keyedBy: ThumbnailKeys.self, forKey: .thumbnail)
         
-        let thumbnailImage = try thumbnailContainer.decode(String.self, forKey: .imageUrl)
+        let thumbnailImage = try thumbnailContainer.decode(URL.self, forKey: .imageUrl)
         
         
         self.init(id: id, name: name, tagline: tagline, thumbNail: thumbnailImage, votesCount: votesCount)
