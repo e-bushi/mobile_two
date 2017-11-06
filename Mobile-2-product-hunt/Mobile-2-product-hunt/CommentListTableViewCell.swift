@@ -10,15 +10,14 @@ import UIKit
 
 class CommentListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userComment: UITextView!
+    
+    var comments: Comment? {
+        didSet {
+            userName?.text = comments?.name
+            userComment?.text = comments?.body
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

@@ -86,7 +86,37 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K81-dt-bum" id="b3i-Ae-cNa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVS-jp-0Qh">
+                                            <rect key="frame" x="21" y="0.0" width="134" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yog-E7-KaA">
+                                            <rect key="frame" x="60" y="25" width="305" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="305" id="fdO-jq-u5J"/>
+                                                <constraint firstAttribute="height" constant="40" id="lyY-Ju-Obe"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="yog-E7-KaA" secondAttribute="trailing" constant="10" id="A9J-fU-ctW"/>
+                                        <constraint firstAttribute="trailing" secondItem="qVS-jp-0Qh" secondAttribute="trailing" constant="220" id="Cze-cs-vxJ"/>
+                                        <constraint firstItem="qVS-jp-0Qh" firstAttribute="leading" secondItem="b3i-Ae-cNa" secondAttribute="leading" constant="21" id="NFY-xz-tSm"/>
+                                        <constraint firstItem="qVS-jp-0Qh" firstAttribute="top" secondItem="b3i-Ae-cNa" secondAttribute="top" id="opv-qr-bKN"/>
+                                        <constraint firstItem="yog-E7-KaA" firstAttribute="top" secondItem="b3i-Ae-cNa" secondAttribute="top" constant="25" id="vE9-ml-8Vv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userComment" destination="yog-E7-KaA" id="3iB-oh-fLI"/>
+                                    <outlet property="userName" destination="qVS-jp-0Qh" id="rWu-c4-azB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -97,7 +127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dZ-Rr-3zs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="47"/>
+            <point key="canvasLocation" x="1253.5999999999999" y="46.326836581709152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V6T-yO-WXN">

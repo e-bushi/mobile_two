@@ -47,10 +47,10 @@ class CommentListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentListTableViewCell
         
         // Configure the cell...
-        cell.textLabel?.text = comments[indexPath.row].name
+        cell.comments = comments[indexPath.row]
         
         return cell
     }
